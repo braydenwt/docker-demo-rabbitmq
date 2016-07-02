@@ -17,7 +17,7 @@ public class Send {
     String message = "Hello World!";
 
     int count = 0;
-    while(count < 1000) {
+    while(count < 100) {
       channel.basicPublish("", QUEUE_NAME, null, message.getBytes("UTF-8"));
       System.out.println(" [x] Sent '" + message + "'");
       count++;
