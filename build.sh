@@ -18,3 +18,5 @@ cp ./src/entry.sh ./output/
 
 [ -f ./output/entry.sh ] && chmod +x ./output/entry.sh
 
+# build docker image
+docker build -t ubuntu-jdk7 .
