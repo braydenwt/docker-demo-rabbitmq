@@ -3,10 +3,11 @@
 # check if javac avaiable
 [ $(which javac) ] || { echo "javac not installed"; exit 1; }
 
+# check javac version (1.7.*)
+javac -version 2>&1 | grep "1.7.[0-9]" || { echo "javac 1.7.* is required"; exit 1; }
+
 # ceate the output folder if not exists
 [ -d ./output ] || mkdir ./output
-
-# TODO: check javac version (1.7+) 
 
 # compile
 javac -classpath "./src/libs/rabbitmq-client.jar" ./src/*.java -d ./output
