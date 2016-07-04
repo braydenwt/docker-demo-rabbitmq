@@ -2,6 +2,7 @@
 
 nc -z -w 1 rabbitmq-server 5672
 while [ $? -ne 0 ]; do
+  echo "remote port is not ready. retry in one second .." 
   sleep 1;
   nc -z -w 1 rabbitmq-server 5672
 done
