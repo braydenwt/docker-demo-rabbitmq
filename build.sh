@@ -19,7 +19,7 @@ outputDir="./output/$1"
 [ -d $outputDir ] || mkdir -p $outputDir
 
 # cleanup
-rm $outputDir/*
+rm -rf $outputDir/*
 
 # compile
 javac -classpath "./src/libs/rabbitmq-client.jar" $srcDir/*.java -d $outputDir
