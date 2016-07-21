@@ -31,4 +31,4 @@ cp ./src/$1/*.sh $outputDir
 [ -f $outputDir/entry.sh ] && chmod +x $outputDir/entry.sh
 
 # build docker image
-# docker build -t ubuntu-jdk7 .
+# docker build -t ubuntu-trusty-jdk7 .

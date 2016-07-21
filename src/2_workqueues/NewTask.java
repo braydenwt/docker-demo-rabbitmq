@@ -26,7 +26,7 @@ public class NewTask {
               message.getBytes());
       System.out.println(" [x] Sent '" + message + "'");
       count++;
-      Thread.sleep(700);
+      Thread.sleep(100);
     }
 
     // channel.close();

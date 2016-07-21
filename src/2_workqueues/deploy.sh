@@ -13,14 +13,14 @@ docker run -d --hostname rabbitmq-dev1 --name rabbitmq-server $ports_expose rabb
 # local
 # ( cd $outputDir && ./entry.sh NewTask & )
 # dockerized
-docker run -d --name rabbitmq-taskmgr --link rabbitmq-server --volume $(pwd)/output/$1:/var/workspace ubuntu-jdk7 ./entry.sh NewTask 2>&1
+docker run -d --name rabbitmq-taskmgr --link rabbitmq-server --volume $(pwd)/output/$1:/var/workspace ubuntu-trusty-jdk7 ./entry.sh NewTask 2>&1
 
-for (( i = 1; i <= 2; i++ )); do
+for (( i = 1; i <= 1; i++ )); do
   echo "creating instance: No.$i"
 # local
 # ( cd $outputDir && ./entry.sh Worker & )
 # dockerized
-  docker run -d --name rabbitmq-worker$i --link rabbitmq-server --link rabbitmq-taskmgr --volume $(pwd)/output/$1:/var/workspace ubuntu-jdk7 ./entry.sh Worker 2>&1
+  docker run -d --name rabbitmq-worker$i --link rabbitmq-server --link rabbitmq-taskmgr --volume $(pwd)/output/$1:/var/workspace ubuntu-trusty-jdk7 ./entry.sh Worker 2>&1
 done
 
 # make sure the "nc" non-zero exit code won't terminate the script.
