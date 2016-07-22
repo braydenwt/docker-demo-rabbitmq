@@ -20,7 +20,7 @@ for (( i = 1; i <= 1; i++ )); do
 # local
 # ( cd $outputDir && ./entry.sh Worker & )
 # dockerized
-  docker run -d --name rabbitmq-worker$i --link rabbitmq-server --link rabbitmq-taskmgr --volume $(pwd)/output/$1:/var/workspace ubuntu-trusty-jdk7 ./entry.sh Worker 2>&1
+  docker run -d --name rabbitmq-worker$i_$RANDOM --link rabbitmq-server --link rabbitmq-taskmgr --volume $(pwd)/output/$1:/var/workspace ubuntu-trusty-jdk7 ./entry.sh Worker 2>&1
 done
 
 # make sure the "nc" non-zero exit code won't terminate the script.
